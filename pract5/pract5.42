@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int factorial(int n) {
+    int result = 1;
+
+    for (int i = 1; i <= n; i++) {
+        result *= i;
+    }
+
+    return result;
+}
+
+int combination(int n, int k) {
+    return factorial(n) / (factorial(k) * factorial(n - k));
+}
+
+double bernoulli(int n, int k, double p) {
+    double q = 1 - p;
+
+    return combination(n, k) * pow(p, k) * pow(q, n - k);
+}
+
+int main() {
+    int n = 6;
+    double p = 0.3;
+
+    double probability = 0;
+
+    for (int k = 0; k <= 2; k++) {
+        probability += bernoulli(n, k, p);
+    }
+
+    cout << "Ймовірність того, що збанкрутують не більше 2 компаній: ";
+    cout << probability << endl;
+
+    return 0;
+}
