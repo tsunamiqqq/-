@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n = 24;
+    double p = 0.6;
+    double q = 1 - p;
+
+    double left = n * p - q;
+    double right = n * p + p;
+
+    cout << "Ліва межа: " << left << endl;
+    cout << "Права межа: " << right << endl;
+
+    cout << "Найімовірніше число придатних зразків: 14 або 15" << endl;
+
+    return 0;
+}
